@@ -15,8 +15,10 @@ class App extends Component {
       <div className='App'>
         <header>
           <h1>RANCID TOMATILLOS</h1>
-          <AllMovies movies={this.state.movies} />
         </header>
+        <main>
+          <AllMovies movies={this.state.movies} />
+        </main>
       </div>
     )
   }
