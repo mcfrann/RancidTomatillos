@@ -3,7 +3,6 @@ import './AllMovies.css'
 import MovieTile from './MovieTile'
 
 const AllMovies = (movies) => {
-  console.log(movies)
   const movieInfo = movies.movies.map((movie) => {
     return (
       <MovieTile

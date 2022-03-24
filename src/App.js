@@ -14,8 +14,7 @@ class App extends Component {
     return (
       <div className='App'>
         <header>
-          <h1>Rancid Tomatillos</h1>
-          {console.log(this.state.movies)}
+          <h1>RANCID TOMATILLOS</h1>
           <AllMovies movies={this.state.movies} />
         </header>
       </div>

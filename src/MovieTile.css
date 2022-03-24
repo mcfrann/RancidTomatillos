@@ -1,0 +1,15 @@
+/* .movie-tile {
+  height: 400px;
+  max-width: 30px;
+} */
+.movie-img {
+  max-width: 20vw;
+  border-radius: 5%;
+  transition: 1000ms;
+}
+
+.movie-img:hover {
+  max-width: 22vw;
+  border-radius: 5%;
+  transition: 500ms;
+}
