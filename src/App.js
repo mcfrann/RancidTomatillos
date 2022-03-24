@@ -6,7 +6,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData,
+      movies: movieData['movies'],
     }
   }
 
@@ -15,7 +15,8 @@ class App extends Component {
       <div className='App'>
         <header>
           <h1>Rancid Tomatillos</h1>
-          <AllMovies allMovies={this.state.movies} />
+          {console.log(this.state.movies)}
+          <AllMovies movies={this.state.movies} />
         </header>
       </div>
     )
