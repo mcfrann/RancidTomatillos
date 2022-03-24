@@ -1,13 +1,26 @@
+@import url(https://fonts.google.com/specimen/Dela+Gothic+One
+https://fonts.google.com/specimen/Secular+One);
+@import url(https://fonts.google.com/specimen/Secular+One
+https://fonts.google.com/specimen/Alfa+Slab+One);
+@import url(https://fonts.google.com/specimen/Fredoka+Ones);
+@import url(https://fonts.google.com/specimen/Righteous);
+
 body {
+  font-family: '';
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #08143d;
+  color: whitesmoke;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header {
+  background-color: #08143d;
+  /* position: fixed; */
+  width: 100%;
+}
+
+h1 {
+  font-size: 4vw;
+  font-family: 'Dela Gothic One', cursive;
 }
