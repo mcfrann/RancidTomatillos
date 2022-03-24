@@ -6,14 +6,9 @@
   max-width: 20vw;
   border-radius: 5%;
   transition: 1000ms;
-  /* opacity: 70%; */
 }
 
 .movie-img:hover {
-  /* opacity: 100%; */
-
-  /* max-width: 22vw; */
-
   transform: scale(1.1);
   border-radius: 5%;
   transition: 500ms;
