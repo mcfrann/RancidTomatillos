@@ -2,6 +2,7 @@ import './App.css'
 import React, { Component } from 'react'
 import movieData from './MovieData'
 import AllMovies from './AllMovies'
+import MovieModule from './MovieModule'
 
 class App extends Component {
   constructor() {
@@ -16,6 +17,7 @@ class App extends Component {
     this.setState({
       movies: [movie]
     })
+    console.log(this.state.movies.length)
     
   }
 
@@ -26,9 +28,9 @@ class App extends Component {
           <h1>RANCID TOMATILLOS</h1>
         </header>
         <main>
-          <AllMovies movies={this.state.movies} 
-          showMovie={this.showMovie}
-          />
+          {this.state.movies.length > 1 ?
+          <AllMovies movies={this.state.movies} showMovie={this.showMovie}/> :
+          <MovieModule />}
         </main>
       </div>
     )
