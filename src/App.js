@@ -11,8 +11,8 @@ class App extends Component {
     }
   }
 
-  showMovie = () => {
-    console.log("hello")
+  showMovie = (id) => {
+    console.log(id)
   }
 
   render() {

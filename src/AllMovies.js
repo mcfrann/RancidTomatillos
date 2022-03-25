@@ -2,15 +2,15 @@ import React from 'react'
 import './AllMovies.css'
 import MovieTile from './MovieTile'
 
-const AllMovies = (props, showMovie) => {
-  const movieInfo = props.movies.map((movie) => {
+const AllMovies = ({ movies, showMovie }) => {
+  const movieInfo = movies.map((movie) => {
     return (
       <MovieTile
         id={movie.id}
         key={movie.id}
         poster_path={movie.poster_path}
         title={movie.title}
-        onClick={console.log("hiiii")}
+        showMovie={showMovie}
       />
     )
   })
