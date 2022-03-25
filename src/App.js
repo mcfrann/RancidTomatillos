@@ -12,7 +12,11 @@ class App extends Component {
   }
 
   showMovie = (id) => {
-    console.log(id)
+    const movie = movieData['movies'].find(movie => movie.id === id)
+    this.setState({
+      movies: [movie]
+    })
+    
   }
 
   render() {
