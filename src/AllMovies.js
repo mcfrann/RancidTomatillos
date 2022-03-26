@@ -2,9 +2,8 @@ import React from 'react'
 import './AllMovies.css'
 import MovieTile from './MovieTile'
 
-const AllMovies = ({ movies, showMovie }) => {
-  console.log('allmovies movies', movies)
-  const movieInfo = movies.map((movie) => {
+const AllMovies = ({movies, showMovie}) => {
+  const movieInfo = movies.map(movie => {
     return (
       <MovieTile
         id={movie.id}
