@@ -1,10 +1,8 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import './MovieModule.css'
-import MovieData from './MovieData'
 
-const MovieModule = ({ currentMovie, returnHome }) => {
+const MovieModule = ({currentMovie, returnHome}) => {
   const movie = currentMovie
-
   return (
     <div className='movie-info-container'>
       <div
@@ -25,14 +23,14 @@ const MovieModule = ({ currentMovie, returnHome }) => {
 
         <div
           className='text-container'
-          style={{ opacity: '80%', padding: '10.6vw' }}
+          style={{opacity: '80%', padding: '10.6vw'}}
         >
           <h2>{movie.title}</h2>
           <p>
             <strong>Release Date:</strong> {movie.release_date}
           </p>
           <p>
-            <strong>Average Rating:</strong> {movie.average_rating.toFixed(2)}
+            <strong>Average Rating:</strong> {movie.average_rating}
           </p>
           <button className='return-home' onClick={returnHome}>
             Return Home

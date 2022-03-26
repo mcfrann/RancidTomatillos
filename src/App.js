@@ -10,24 +10,25 @@ class App extends Component {
     super()
     this.state = {
       moviesKey: [],
-      error: ''
+      error: '',
     }
   }
   componentDidMount() {
-    fetchData.getAllMovies()
+    fetchData
+      .getAllMovies()
       .then(data => {
         this.setState({moviesKey: data.movies})
       })
-      .catch(error => this.setState({ error: "uh oh" }))
+      .catch(error => this.setState({error: 'uh oh'}))
   }
 
-  showMovie = (id) => {
-    fetchData.getOneMovie(id)
-      .then()
+  showMovie = id => {
     // const movie = movieData['movies'].find((movie) => movie.id === id)
-    // this.setState({
-    //   movies: [movie],
-    // })
+
+    fetchData
+      .getOneMovie(id)
+      .then(movie => this.setState({moviesKey: movie.movie}))
+      .catch(error => this.setState({error: 'unable to find movie'}))
   }
 
   returnHome = () => {
@@ -43,16 +44,19 @@ class App extends Component {
           <h1>RANCID TOMATILLOS</h1>
         </header>
         <main>
-          {/* {this.state.movies.length > 1 ? (
-            <AllMovies movies={this.state.movies} showMovie={this.showMovie} />
+          {this.state.error && <h2>Uh oh! Cannot access server.</h2>}
+          {this.state.moviesKey.length > 1 ? (
+            <AllMovies
+              movies={this.state.moviesKey}
+              showMovie={this.showMovie}
+            />
           ) : (
             <MovieModule
-              currentMovie={this.state.movies[0]}
+              showMovie={this.showMovie}
               returnHome={this.returnHome}
+              currentMovie={this.state.moviesKey}
             />
-          )} */}
-          {this.state.error && <h2>Uh oh! Cannot access server.</h2>}
-          <AllMovies movies={this.state.moviesKey} />
+          )}
         </main>
       </div>
     )
