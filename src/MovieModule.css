@@ -1,10 +1,12 @@
-/* * {
-  border: 2px solid red;
-} */
+* {
+  /* border: 2px solid red; */
+  margin: 0;
+}
 
 main {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .movie-info-container {
@@ -16,6 +18,7 @@ main {
   align-items: center;
   background-color: #2d375b;
   border-radius: 15px;
+  margin-top: 5%;
 }
 
 .movie-mod {
@@ -39,21 +42,30 @@ main {
   display: flex;
   flex-direction: column;
   width: 30vh;
-  height: 10vw;
+  height: 15vw;
   justify-content: center;
   border-radius: 1em;
   font-family: sans-serif;
   background-color: #2d375b;
 }
 
-.bottom-section {
-  height: 50%;
+.display-movie-info {
+  width: 100%;
 }
+
+/* .bottom-section {
+  height: 50%;
+} */
 
 h2 {
   font-size: 40px;
 }
 
-p {
+h3 {
   font-size: 20px;
+}
+
+p {
+  font-size: 13px;
+  width: 100%;
 }

@@ -14,7 +14,6 @@ const MovieModule = ({currentMovie, returnHome}) => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className='bottom-section'></div>
         <img
           className='movie-poster'
           src={movie.poster_path}
@@ -25,16 +24,33 @@ const MovieModule = ({currentMovie, returnHome}) => {
           className='text-container'
           style={{opacity: '80%', padding: '10.6vw'}}
         >
-          <h2>{movie.title}</h2>
-          <p>
-            <strong>Release Date:</strong> {movie.release_date}
-          </p>
-          <p>
-            <strong>Average Rating:</strong> {movie.average_rating}
-          </p>
-          <button className='return-home' onClick={returnHome}>
-            Return Home
-          </button>
+          <div className='display-movie-info'>
+            <h2>{movie.title}</h2>
+            <br/>
+            <h3>Release Date:</h3>
+            <p>
+              {movie.release_date}
+            </p>
+            <br/>
+            <h3>Average Rating:</h3>
+            <p>
+              {movie.average_rating}
+            </p>
+            <br/>
+            <h3>Genre</h3>
+            <p>
+              {movie.genre}
+            </p>
+            <br/>
+            <h3>Overview:</h3>
+            <p>
+              {movie.overview}
+            </p>
+            <br/>
+            <button className='return-home' onClick={returnHome}>
+              Return Home
+            </button>
+          </div>
         </div>
       </div>
     </div>
