@@ -38,11 +38,12 @@ main {
 .text-container {
   display: flex;
   flex-direction: column;
-  height: 50%;
-  width: 70vh;
+  width: 30vh;
+  height: 10vw;
+  justify-content: center;
+  border-radius: 1em;
   font-family: sans-serif;
   background-color: #2d375b;
-  border-radius: 15px;
 }
 
 .bottom-section {

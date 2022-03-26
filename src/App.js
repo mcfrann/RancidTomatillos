@@ -10,19 +10,14 @@ class App extends Component {
     this.state = {
       movies: movieData['movies'],
     }
-    // this.currentMovie = null
   }
 
   showMovie = (id) => {
-    const movie = movieData['movies'].find(movie => movie.id === id)
+    const movie = movieData['movies'].find((movie) => movie.id === id)
     this.setState({
-      movies: [movie]
+      movies: [movie],
     })
   }
-
-  // returnHome = () => {
-  //   this.setState
-  // }
 
   render() {
     return (
@@ -31,9 +26,11 @@ class App extends Component {
           <h1>RANCID TOMATILLOS</h1>
         </header>
         <main>
-          {this.state.movies.length > 1 ?
-          <AllMovies movies={this.state.movies} showMovie={this.showMovie}/> :
-          <MovieModule currentMovie={this.state.movies[0]}/>}
+          {this.state.movies.length > 1 ? (
+            <AllMovies movies={this.state.movies} showMovie={this.showMovie} />
+          ) : (
+            <MovieModule currentMovie={this.state.movies[0]} />
+          )}
         </main>
       </div>
     )
