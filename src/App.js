@@ -1,23 +1,34 @@
 import './App.css'
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import movieData from './MovieData'
 import AllMovies from './AllMovies'
 import MovieModule from './MovieModule'
+import fetchData from './api-calls'
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData['movies'],
+      moviesKey: [],
+      // error: ''
     }
   }
-
-  showMovie = (id) => {
-    const movie = movieData['movies'].find((movie) => movie.id === id)
-    this.setState({
-      movies: [movie],
-    })
+  componentDidMount() {
+    console.log('did component mount?')
+    fetchData.getAllMovies
+      .then(data => console.log('data in the componentDM', data.movies))
+      .then(data => {
+        this.setState({moviesKey: data.movies})
+      })
+      .catch(error => console.log('error:', error))
   }
+
+  // showMovie = (id) => {
+  //   const movie = movieData['movies'].find((movie) => movie.id === id)
+  //   this.setState({
+  //     movies: [movie],
+  //   })
+  // }
   returnHome = () => {
     this.setState({
       movies: movieData['movies'],
@@ -31,14 +42,15 @@ class App extends Component {
           <h1>RANCID TOMATILLOS</h1>
         </header>
         <main>
-          {this.state.movies.length > 1 ? (
+          {/* {this.state.movies.length > 1 ? (
             <AllMovies movies={this.state.movies} showMovie={this.showMovie} />
           ) : (
             <MovieModule
               currentMovie={this.state.movies[0]}
               returnHome={this.returnHome}
             />
-          )}
+          )} */}
+          <AllMovies movies={this.state.moviesKey} />
         </main>
       </div>
     )

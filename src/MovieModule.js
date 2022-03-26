@@ -7,9 +7,6 @@ const MovieModule = ({ currentMovie, returnHome }) => {
 
   return (
     <div className='movie-info-container'>
-      <button className='return-home' onClick={returnHome}>
-        Return Home
-      </button>
       <div
         className='movie-mod'
         style={{
@@ -37,6 +34,9 @@ const MovieModule = ({ currentMovie, returnHome }) => {
           <p>
             <strong>Average Rating:</strong> {movie.average_rating.toFixed(2)}
           </p>
+          <button className='return-home' onClick={returnHome}>
+            Return Home
+          </button>
         </div>
       </div>
     </div>
