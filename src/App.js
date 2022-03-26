@@ -10,25 +10,26 @@ class App extends Component {
     super()
     this.state = {
       moviesKey: [],
-      // error: ''
+      error: ''
     }
   }
   componentDidMount() {
-    console.log('did component mount?')
-    fetchData.getAllMovies
-      .then(data => console.log('data in the componentDM', data.movies))
+    fetchData.getAllMovies()
       .then(data => {
         this.setState({moviesKey: data.movies})
       })
-      .catch(error => console.log('error:', error))
+      .catch(error => this.setState({ error: "uh oh" }))
   }
 
-  // showMovie = (id) => {
-  //   const movie = movieData['movies'].find((movie) => movie.id === id)
-  //   this.setState({
-  //     movies: [movie],
-  //   })
-  // }
+  showMovie = (id) => {
+    fetchData.getOneMovie(id)
+      .then()
+    // const movie = movieData['movies'].find((movie) => movie.id === id)
+    // this.setState({
+    //   movies: [movie],
+    // })
+  }
+
   returnHome = () => {
     this.setState({
       movies: movieData['movies'],
@@ -50,6 +51,7 @@ class App extends Component {
               returnHome={this.returnHome}
             />
           )} */}
+          {this.state.error && <h2>Uh oh! Cannot access server.</h2>}
           <AllMovies movies={this.state.moviesKey} />
         </main>
       </div>
