@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import './MovieModule.css'
 import MovieData from './MovieData'
 
-const MovieModule = (props) => {
-  const movie = props.currentMovie
+const MovieModule = ({ currentMovie, returnHome }) => {
+  const movie = currentMovie
 
   return (
     <div className='movie-info-container'>
+      <button className='return-home' onClick={returnHome}>
+        Return Home
+      </button>
       <div
         className='movie-mod'
         style={{

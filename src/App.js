@@ -18,6 +18,11 @@ class App extends Component {
       movies: [movie],
     })
   }
+  returnHome = () => {
+    this.setState({
+      movies: movieData['movies'],
+    })
+  }
 
   render() {
     return (
@@ -29,7 +34,10 @@ class App extends Component {
           {this.state.movies.length > 1 ? (
             <AllMovies movies={this.state.movies} showMovie={this.showMovie} />
           ) : (
-            <MovieModule currentMovie={this.state.movies[0]} />
+            <MovieModule
+              currentMovie={this.state.movies[0]}
+              returnHome={this.returnHome}
+            />
           )}
         </main>
       </div>
