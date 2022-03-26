@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
       movies: movieData['movies'],
     }
-    this.currentMovie = null
+    // this.currentMovie = null
   }
 
   showMovie = (id) => {
@@ -19,6 +19,10 @@ class App extends Component {
       movies: [movie]
     })
   }
+
+  // returnHome = () => {
+  //   this.setState
+  // }
 
   render() {
     return (
