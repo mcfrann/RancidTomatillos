@@ -10,6 +10,7 @@ class App extends Component {
     this.state = {
       movies: movieData['movies'],
     }
+    this.currentMovie = null
   }
 
   showMovie = (id) => {
@@ -17,8 +18,6 @@ class App extends Component {
     this.setState({
       movies: [movie]
     })
-    console.log(this.state.movies.length)
-    
   }
 
   render() {
@@ -30,7 +29,7 @@ class App extends Component {
         <main>
           {this.state.movies.length > 1 ?
           <AllMovies movies={this.state.movies} showMovie={this.showMovie}/> :
-          <MovieModule />}
+          <MovieModule currentMovie={this.state.movies[0]}/>}
         </main>
       </div>
     )

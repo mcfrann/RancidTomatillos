@@ -1,0 +1,22 @@
+* {
+  border: 2px solid red;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.movie-mod {
+  display: flex;
+  width: 80vw;
+  height: 70vh;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
+
+.movie-poster {
+  height: 30vw;
+  border-radius: 15px;
+}
