@@ -13,7 +13,7 @@ class App extends Component {
       error: '',
     }
   }
-  componentDidMount() {
+  componentDidMount(event) {
     fetchData
       .getAllMovies()
       .then(data => {
@@ -32,9 +32,12 @@ class App extends Component {
   }
 
   returnHome = () => {
-    this.setState({
-      movies: movieData['movies'],
-    })
+    fetchData
+      .getAllMovies()
+      .then(data => {
+        this.setState({moviesKey: data.movies})
+      })
+      .catch(error => this.setState({error: 'uh oh'}))
   }
 
   render() {
@@ -45,11 +48,14 @@ class App extends Component {
         </header>
         <main>
           {this.state.error && <h2>Uh oh! Cannot access server.</h2>}
+          {this.state.movies > 1 && <h1>loading...</h1>}
           {this.state.moviesKey.length > 1 ? (
             <AllMovies
               movies={this.state.moviesKey}
               showMovie={this.showMovie}
             />
+          ) : this.state.moviesKey.length < 50 ? (
+            <h2> loading... </h2>
           ) : (
             <MovieModule
               showMovie={this.showMovie}
