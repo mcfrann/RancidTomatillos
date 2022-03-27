@@ -47,11 +47,11 @@ class App extends Component {
     return (
       <div className='App'>
         <header>
-          <h1 className='title'>RANCID TOMATILLOS</h1>
+          <h1 className='title' onClick={this.returnHome} style={{cursor:'pointer'}}>RANCID TOMATILLOS</h1>
         </header>
         <main>
           {this.state.error && <h2>Uh oh! Cannot access server.</h2>}
-          {this.state.movies > 1 && <h1>loading...</h1>}
+          {/* {this.state.movies > 1 && <h1>loading...</h1>} */}
           {this.state.moviesKey.length > 1 ? (
             <AllMovies
               movies={this.state.moviesKey}

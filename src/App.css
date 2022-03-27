@@ -12,6 +12,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 button {
   cursor: pointer;
   height: 5vw;
@@ -73,7 +74,7 @@ header {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(3600deg);
   }
 }
 @-webkit-keyframes rotate-scale-up {
