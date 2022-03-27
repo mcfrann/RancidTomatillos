@@ -5,6 +5,12 @@ https://fonts.google.com/specimen/Alfa+Slab+One);
 @import url(https://fonts.google.com/specimen/Fredoka+Ones);
 @import url(https://fonts.google.com/specimen/Righteous);
 
+/* html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
 body {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin: 0;
