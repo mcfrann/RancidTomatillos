@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './MovieModule.css'
 
-const MovieModule = ({currentMovie, returnHome}) => {
+const MovieModule = ({currentMovie, returnHome, displayNumber}) => {
   const movie = currentMovie
   return (
     <div className='movie-info-container'>
@@ -23,16 +23,22 @@ const MovieModule = ({currentMovie, returnHome}) => {
 
         <div
           className='text-container'
-          style={{opacity: '80%', padding: '10.6vw'}}
+          style={{
+            opacity: '85%',
+            height: '44vw',
+            width: '44vw',
+            padding: '1vw',
+          }}
         >
           <h2>{movie.title}</h2>
           <p>
             <strong>Release Date:</strong> {movie.release_date}
           </p>
           <p>
-            <strong>Average Rating:</strong> {movie.average_rating}
+            <strong>Average Rating:</strong>{' '}
+            {displayNumber(movie.average_rating)}
           </p>
-          <button className='return-home' onClick={returnHome}>
+          <button className='return-home' id='button' onClick={returnHome}>
             Return Home
           </button>
         </div>
