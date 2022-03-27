@@ -25,9 +25,9 @@ const MovieModule = ({currentMovie, returnHome, displayNumber}) => {
           className='text-container'
           style={{
             opacity: '85%',
-            height: '44vw',
+            height: '40vw',
             width: '44vw',
-            padding: '1vw',
+            padding: '1vw'
           }}
         >
           <h2>{movie.title}</h2>
