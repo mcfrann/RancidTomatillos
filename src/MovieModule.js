@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './MovieModule.css'
 
-const MovieModule = ({currentMovie, returnHome}) => {
+const MovieModule = ({currentMovie, returnHome, displayNumber}) => {
   const movie = currentMovie
   return (
     <div className='movie-info-container'>
@@ -22,35 +22,24 @@ const MovieModule = ({currentMovie, returnHome}) => {
 
         <div
           className='text-container'
-          style={{opacity: '80%', padding: '10.6vw'}}
+          style={{
+            opacity: '85%',
+            height: '40vw',
+            width: '44vw',
+            padding: '1vw'
+          }}
         >
-          <div className='display-movie-info'>
-            <h2>{movie.title}</h2>
-            <br/>
-            <h3>Release Date:</h3>
-            <p>
-              {movie.release_date}
-            </p>
-            <br/>
-            <h3>Average Rating:</h3>
-            <p>
-              {movie.average_rating}
-            </p>
-            <br/>
-            <h3>Genre</h3>
-            <p>
-              {movie.genre}
-            </p>
-            <br/>
-            <h3>Overview:</h3>
-            <p>
-              {movie.overview}
-            </p>
-            <br/>
-            <button className='return-home' onClick={returnHome}>
-              Return Home
-            </button>
-          </div>
+          <h2>{movie.title}</h2>
+          <p>
+            <strong>Release Date:</strong> {movie.release_date}
+          </p>
+          <p>
+            <strong>Average Rating:</strong>{' '}
+            {displayNumber(movie.average_rating)}
+          </p>
+          <button className='return-home' id='button' onClick={returnHome}>
+            Return Home
+          </button>
         </div>
       </div>
     </div>
