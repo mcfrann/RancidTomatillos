@@ -14,7 +14,6 @@ const MovieModule = ({currentMovie, returnHome, displayNumber}) => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className='bottom-section'></div>
         <img
           className='movie-poster'
           src={movie.poster_path}

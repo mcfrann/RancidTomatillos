@@ -1,6 +1,7 @@
-/* * {
-  border: 2px solid red;
-} */
+* {
+  /* border: 2px solid red; */
+  margin: 0;
+}
 
 main {
   display: flex;
@@ -44,7 +45,7 @@ main {
   display: flex;
   flex-direction: column;
   width: 30vh;
-  height: 10vw;
+  height: 15vw;
   justify-content: center;
   position: relative;
   align-items: center;
@@ -56,10 +57,19 @@ main {
   border-top-left-radius: 0vw;
 }
 
+/* .bottom-section {
+  height: 50%;
+} */
+
 h2 {
   font-size: 40px;
 }
 
-p {
+h3 {
   font-size: 20px;
+}
+
+p {
+  font-size: 13px;
+  width: 100%;
 }

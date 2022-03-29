@@ -14,9 +14,8 @@ class App extends Component {
       error: '',
     }
   }
-  componentDidMount(event) {
-    fetchData
-      .getAllMovies()
+  componentDidMount() {
+    fetchData.getAllMovies()
       .then(data => {
         this.setState({moviesKey: data.movies})
       })
@@ -24,17 +23,13 @@ class App extends Component {
   }
 
   showMovie = id => {
-    // const movie = movieData['movies'].find((movie) => movie.id === id)
-
-    fetchData
-      .getOneMovie(id)
+    fetchData.getOneMovie(id)
       .then(movie => this.setState({moviesKey: movie.movie}))
       .catch(error => this.setState({error: 'unable to find movie'}))
   }
 
   returnHome = () => {
-    fetchData
-      .getAllMovies()
+    fetchData.getAllMovies()
       .then(data => {
         this.setState({moviesKey: data.movies})
       })
