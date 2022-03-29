@@ -23,11 +23,15 @@ class App extends Component {
       .catch(error => this.setState({error: 'uh oh'}))
   }
 
-  showMovie = id => {
-    fetchData.getOneMovie(id)
-      .then(movie => this.setState({moviesKey: movie.movie}))
-      .catch(error => this.setState({error: 'unable to find movie'}))
+  showMovie = match => {
+    this.state.moviesKey.find(movie => movie.id === parseInt(match))
   }
+
+  // showMovie = id => {
+  //   fetchData.getOneMovie(id)
+  //     .then(movie => this.setState({moviesKey: movie.movie}))
+  //     .catch(error => this.setState({error: 'unable to find movie'}))
+  // }
 
   returnHome = () => {
     fetchData.getAllMovies()
@@ -58,12 +62,18 @@ class App extends Component {
                   {' '}
                   <img src={icon} alt='popcorn-icon' id='popcornIcon' />
                 </h2>}
-              {this.state.moviesKey.length === 1 &&
-              <Route path="/moviemodule" exact render={ () => <MovieModule
-                showMovie={this.showMovie}
-                returnHome={this.returnHome}
-                currentMovie={this.state.moviesKey}
-                displayNumber={this.displayNumber}/>} />}
+              {/* {this.state.moviesKey.length === 1 && */}
+              <Route exact path="/:id" render={ ({ match }) => {
+                // const currentMovie = this.state.moviesKey.find(movie => movie.id === parseInt(match.params.id))
+                return <MovieModule
+                  // movieID={movieID}
+                  showMovie={this.showMovie}
+                  returnHome={this.returnHome}
+                  currentMovie={this.showMovie(match.params.id)}
+                  // currentMovie={currentMovie}
+                  displayNumber={this.displayNumber}/>}}
+                  />
+              {/* } */}
             </main>
         </div>
     )

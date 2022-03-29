@@ -3,6 +3,7 @@ import './MovieModule.css'
 
 const MovieModule = ({currentMovie, returnHome, displayNumber}) => {
   const movie = currentMovie
+  console.log("currentmovie:", movie)
   return (
     <div className='movie-info-container'>
       <div
