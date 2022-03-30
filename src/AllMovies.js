@@ -2,7 +2,7 @@ import React from 'react'
 import './AllMovies.css'
 import MovieTile from './MovieTile'
 
-const AllMovies = ({movies, showMovie}) => {
+const AllMovies = ({movies}) => {
   const movieInfo = movies.map(movie => {
     return (
       <MovieTile
@@ -10,7 +10,6 @@ const AllMovies = ({movies, showMovie}) => {
         key={movie.id}
         poster_path={movie.poster_path}
         title={movie.title}
-        showMovie={showMovie}
       />
     )
   })
