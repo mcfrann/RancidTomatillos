@@ -47,8 +47,8 @@ class App extends Component {
     return (
         <div className='App'>
           <header>
-            <NavLink to="/">
-              <h1 className='title' onClick={this.returnHome} style={{cursor:'pointer'}}>RANCID TOMATILLOS</h1>
+          <NavLink to="/" className="title-bar" style={{ textDecoration: 'none', color: 'white'}}>
+              <h1 className='title' style={{cursor:'pointer'}}>RANCID</h1> <img src={icon} alt='popcorn-icon' id='popcornIcon' /> <h1 className='title' style={{cursor:'pointer'}}>TOMATILLOS</h1> 
             </NavLink>
           </header>
             <main>
@@ -56,11 +56,11 @@ class App extends Component {
               {this.state.moviesKey.length > 1 &&
               <Route path="/" exact render={ () => <AllMovies
                 movies={this.state.moviesKey}/>} />}
-              {this.state.moviesKey.length < 50 &&
+              {/* {this.state.moviesKey.length < 50 &&
                 <h2>
                   {' '}
                   <img src={icon} alt='popcorn-icon' id='popcornIcon' />
-                </h2>}
+                </h2>} */}
               <Route path="/:id" render={ ({ match }) => {
                 // const currentMovie = this.state.moviesKey.find(movie => movie.id === parseInt(match.params.id))
                 const id = parseInt(match.params.id)
