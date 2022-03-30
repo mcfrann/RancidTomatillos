@@ -5,7 +5,7 @@ import AllMovies from './AllMovies'
 import MovieModule from './MovieModule'
 import fetchData from './api-calls'
 import icon from './popcorn.png'
-import { Route } from 'react-router-dom'
+import { Route, NavLink } from 'react-router-dom'
 
 class App extends Component {
   constructor() {
@@ -15,6 +15,7 @@ class App extends Component {
       error: '',
     }
   }
+
   componentDidMount() {
     fetchData.getAllMovies()
       .then(data => {
@@ -23,9 +24,10 @@ class App extends Component {
       .catch(error => this.setState({error: 'uh oh'}))
   }
 
-  showMovie = match => {
-    this.state.moviesKey.find(movie => movie.id === parseInt(match))
-  }
+  // showMovie = match => {
+  //   const newMovie = this.state.moviesKey.find(movie => movie.id === match)
+  //   this.setState({ moviesKey: newMovie })
+  // }
 
   // showMovie = id => {
   //   fetchData.getOneMovie(id)
@@ -41,39 +43,35 @@ class App extends Component {
       .catch(error => this.setState({error: 'uh oh'}))
   }
 
-  displayNumber(number) {
-    return Math.round(number)
-  }
-
   render() {
     return (
         <div className='App'>
           <header>
-            <h1 className='title' onClick={this.returnHome} style={{cursor:'pointer'}}>RANCID TOMATILLOS</h1>
+            <NavLink to="/">
+              <h1 className='title' onClick={this.returnHome} style={{cursor:'pointer'}}>RANCID TOMATILLOS</h1>
+            </NavLink>
           </header>
             <main>
               {this.state.error && <h2>Uh oh! Cannot access server.</h2>}
               {this.state.moviesKey.length > 1 &&
               <Route path="/" exact render={ () => <AllMovies
-                movies={this.state.moviesKey}
-                showMovie={this.showMovie}/>} />}
+                movies={this.state.moviesKey}/>} />}
               {this.state.moviesKey.length < 50 &&
                 <h2>
                   {' '}
                   <img src={icon} alt='popcorn-icon' id='popcornIcon' />
                 </h2>}
-              {/* {this.state.moviesKey.length === 1 && */}
-              <Route exact path="/:id" render={ ({ match }) => {
+              <Route path="/:id" render={ ({ match }) => {
                 // const currentMovie = this.state.moviesKey.find(movie => movie.id === parseInt(match.params.id))
+                const id = parseInt(match.params.id)
                 return <MovieModule
                   // movieID={movieID}
                   showMovie={this.showMovie}
                   returnHome={this.returnHome}
-                  currentMovie={this.showMovie(match.params.id)}
+                  id={id}
                   // currentMovie={currentMovie}
-                  displayNumber={this.displayNumber}/>}}
+                  />}}
                   />
-              {/* } */}
             </main>
         </div>
     )

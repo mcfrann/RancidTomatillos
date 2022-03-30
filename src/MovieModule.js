@@ -1,15 +1,37 @@
+import { render } from '@testing-library/react'
 import React, {Component} from 'react'
+import { NavLink } from 'react-router-dom'
+import fetchData from './api-calls'
 import './MovieModule.css'
 
-const MovieModule = ({currentMovie, returnHome, displayNumber}) => {
-  const movie = currentMovie
-  console.log("currentmovie:", movie)
+class MovieModule extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      currentMovie: ''
+    }
+  }
+  // const movie = currentMovie
+  // console.log("currentmovie:", movie)
+  // {currentMovie, returnHome, displayNumber}
+
+componentDidMount() {
+  fetchData.getOneMovie(this.props.id)
+    .then(movie => this.setState({currentMovie: movie.movie}))
+    .catch(error => this.setState({error: 'unable to find movie'}))
+}
+
+displayNumber(number) {
+  return Math.round(number)
+}
+
+render() {
   return (
     <div className='movie-info-container'>
       <div
         className='movie-mod'
         style={{
-          backgroundImage: 'url(' + movie.backdrop_path + ')',
+          backgroundImage: 'url(' + this.state.currentMovie.backdrop_path + ')',
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
@@ -17,8 +39,8 @@ const MovieModule = ({currentMovie, returnHome, displayNumber}) => {
       >
         <img
           className='movie-poster'
-          src={movie.poster_path}
-          alt={movie.title}
+          src={this.state.currentMovie.poster_path}
+          alt={this.state.currentMovie.title}
         ></img>
 
         <div
@@ -30,21 +52,25 @@ const MovieModule = ({currentMovie, returnHome, displayNumber}) => {
             padding: '1vw'
           }}
         >
-          <h2>{movie.title}</h2>
+          <h2>{this.state.currentMovie.title}</h2>
           <p>
-            <strong>Release Date:</strong> {movie.release_date}
+            <strong>Release Date:</strong> {this.state.currentMovie.release_date}
           </p>
           <p>
             <strong>Average Rating:</strong>{' '}
-            {displayNumber(movie.average_rating)}
+            {this.displayNumber(this.state.currentMovie.average_rating)}
           </p>
-          <button className='return-home' id='button' onClick={returnHome}>
-            Return Home
-          </button>
+            <NavLink to="/">
+              <button className='return-home' id='button' onClick={this.props.returnHome}>
+              Return Home
+            </button>
+          </NavLink>
         </div>
       </div>
     </div>
-  )
+    )
+  }
 }
+
 
 export default MovieModule
