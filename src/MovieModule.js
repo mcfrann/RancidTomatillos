@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 import { NavLink } from 'react-router-dom'
 import fetchData from './api-calls'
 import './MovieModule.css'
+import backArrow from './yellow-arrow.png'
 
 class MovieModule extends Component {
   constructor(props) {
@@ -31,8 +32,7 @@ render() {
       <div
         className='movie-mod'
         style={{
-          backgroundImage: 'url(' + this.state.currentMovie.backdrop_path + ')',
-          backgroundPosition: 'center',
+          "--img": 'url(' + this.state.currentMovie.backdrop_path + ')',          backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }}
@@ -61,9 +61,13 @@ render() {
             {this.displayNumber(this.state.currentMovie.average_rating)}
           </p>
             <NavLink to="/">
-              <button className='return-home' id='button' onClick={this.props.returnHome}>
-              Return Home
-            </button>
+            <img src={backArrow} alt='back-arrow' id='backArrow' 
+            // style={{
+            // }}
+
+
+            />
+            
           </NavLink>
         </div>
       </div>
