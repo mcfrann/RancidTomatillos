@@ -7,6 +7,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 4vw;
 }
 
 .movie-info-container {
@@ -15,7 +16,6 @@ main {
   top: 8px;
   width: 66vw;
   height: 42vw;
-  /* overflow: auto; */
 }
 
 .movie-mod {
@@ -26,7 +26,10 @@ main {
   align-content: center;
   align-items: center;
   border-radius: 2vw;
-  /* isn't consistent with text container border radius*/
+  background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(255,255,255, 0.32)),
+  var(--img);
+  background-size: cover;
+  background-position: center;
   z-index: -1;
 }
 
@@ -35,9 +38,8 @@ main {
   margin-left: 2vw;
   height: 30vw;
   border-radius: 1em;
-  box-shadow: 0 1px 1px rgba(200, 195, 195, 0.075),
-    0 2px 2px rgba(176, 176, 176, 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
-    0 8px 8px rgba(189, 189, 189, 0.075), 0 16px 16px rgba(215, 215, 215, 0.075);
+  box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+
 }
 
 .text-container {
@@ -46,12 +48,11 @@ main {
   flex-direction: column;
   width: 30vh;
   height: 15vw;
-  justify-content: center;
+  justify-content: space-evenly;
   position: relative;
   align-items: center;
   font-family: sans-serif;
   background-color: #2d375b;
-  overflow-y: scroll;
   border-radius: 2vw;
   border-bottom-left-radius: 0vw;
   border-top-left-radius: 0vw;
