@@ -31,8 +31,7 @@ render() {
       <div
         className='movie-mod'
         style={{
-          backgroundImage: 'url(' + this.state.currentMovie.backdrop_path + ')',
-          backgroundPosition: 'center',
+          "--img": 'url(' + this.state.currentMovie.backdrop_path + ')',          backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }}
