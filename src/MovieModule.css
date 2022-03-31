@@ -24,6 +24,23 @@ main {
 	height: 42vw;
 }
 
+#watchTrailer {
+	/* color: #ffdd55; */
+	font-size: 2.5vw;
+	color: #df3e19;
+	font-weight: bolder;
+	font-style: italic;
+
+	font-weight: bolder;
+	font-style: italic;
+	transition: 1000ms;
+}
+
+#watchTrailer:hover {
+	transition: 500ms;
+	text-shadow: 4px 8px 8px hsl(0deg 0% 0% / 0.38);
+}
+
 .movie-mod {
 	display: flex;
 	width: 66vw;

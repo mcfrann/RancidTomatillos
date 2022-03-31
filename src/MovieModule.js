@@ -24,7 +24,12 @@ class MovieModule extends Component {
 	displayNumber(number) {
 		return Math.round(number)
 	}
-
+	parseDate = (date) => {
+		const splitDate = date.split('-')
+		const newDate = splitDate.slice(1)
+		newDate.push(splitDate[0])
+		return newDate.join('/')
+	}
 	render() {
 		return (
 			<div className='movie-info-container'>
@@ -53,7 +58,7 @@ class MovieModule extends Component {
 							<h2>{this.state.currentMovie.title}</h2>
 							<p className='movie-details'>
 								<strong>Release Date:</strong>{' '}
-								{this.state.currentMovie.release_date}
+								{this.parseDate(this.state.currentMovie.release_date)}
 							</p>
 							<p className='movie-details'>
 								<strong>Average Rating:</strong>{' '}
@@ -61,7 +66,15 @@ class MovieModule extends Component {
 									'/10'}
 							</p>
 							<p className='overview'>{this.state.currentMovie.overview}</p>
-							<button>Watch Trailer</button>
+							<NavLink
+								to='/trailer'
+								alt='watch-trailer'
+								id='watchTrailer'
+								style={{
+									textDecoration: 'none',
+								}}>
+								Watch Trailer
+							</NavLink>
 							<NavLink to='/'>
 								<img src={arrow} alt='back-arrow' id='backArrow' />
 							</NavLink>
