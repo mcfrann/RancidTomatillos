@@ -58,6 +58,7 @@ describe('Rancid Tomatillos App', () => {
     cy.visit('http://localhost:3000/718444')
       .get('.movie-info-container')
       .should('be.visible')
+      .url('http://localhost:3000/718444')
   })
 
   it('should be able to return home by clicking arrow', () => {
@@ -66,6 +67,7 @@ describe('Rancid Tomatillos App', () => {
       .click()
       .get('.movies-container')
       .should('be.visible')
+      .url('http://localhost:3000/')
   })
 
   it('should be able to return home by site title', () => {
@@ -74,6 +76,7 @@ describe('Rancid Tomatillos App', () => {
       .click()
       .get('.movies-container')
       .should('be.visible')
+      .url('http://localhost:3000/')
   })
 })
 
