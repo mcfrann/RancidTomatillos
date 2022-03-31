@@ -1,6 +1,5 @@
 import './App.css'
 import React, {Component} from 'react'
-import movieData from './MovieData'
 import AllMovies from './AllMovies'
 import MovieModule from './MovieModule'
 import fetchData from './api-calls'
