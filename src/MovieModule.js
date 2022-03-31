@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import fetchData from './api-calls'
 import './MovieModule.css'
 import backArrow from './yellow-arrow.png'
+import arrow from './less-than-arrow.png'
 
 class MovieModule extends Component {
   constructor(props) {
@@ -12,9 +13,6 @@ class MovieModule extends Component {
       currentMovie: ''
     }
   }
-  // const movie = currentMovie
-  // console.log("currentmovie:", movie)
-  // {currentMovie, returnHome, displayNumber}
 
 componentDidMount() {
   fetchData.getOneMovie(this.props.id)
@@ -27,54 +25,52 @@ displayNumber(number) {
 }
 
 render() {
-  return (
-    <div className='movie-info-container'>
-      <div
-        className='movie-mod'
-        style={{
-          "--img": 'url(' + this.state.currentMovie.backdrop_path + ')',          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <img
-          className='movie-poster'
-          src={this.state.currentMovie.poster_path}
-          alt={this.state.currentMovie.title}
-        ></img>
 
+    return (
+      <div className='movie-info-container'>
+      {!this.state.currentMovie && <h2 className="loading" >Loading...</h2>}
+      {this.state.currentMovie &&
         <div
-          className='text-container'
+          className='movie-mod'
           style={{
-            opacity: '85%',
-            height: '40vw',
-            width: '44vw',
-            padding: '1vw'
+            "--img": 'url(' + this.state.currentMovie.backdrop_path + ')',          backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
           }}
         >
-          <h2>{this.state.currentMovie.title}</h2>
-          <p>
-            <strong>Release Date:</strong> {this.state.currentMovie.release_date}
-          </p>
-          <p>
-            <strong>Average Rating:</strong>{' '}
-            {this.displayNumber(this.state.currentMovie.average_rating)}
-          </p>
-            <NavLink to="/">
-            <img src={backArrow} alt='back-arrow' id='backArrow' 
-            // style={{
-            // }}
-
-
-            />
-            
-          </NavLink>
+          <img
+            className='movie-poster'
+            src={this.state.currentMovie.poster_path}
+            alt={this.state.currentMovie.title}
+          ></img>
+  
+          <div
+            className='text-container'
+            style={{
+              opacity: '85%',
+              height: '40vw',
+              width: '44vw',
+              padding: '1vw'
+            }}
+          >
+            <h2>{this.state.currentMovie.title}</h2>
+            <p>
+              <strong>Release Date:</strong> {this.state.currentMovie.release_date}
+            </p>
+            <p>
+              <strong>Average Rating:</strong>{' '}
+              {this.displayNumber(this.state.currentMovie.average_rating)}
+            </p>
+              <NavLink to="/">
+              <img src={arrow} alt='back-arrow' id='backArrow' />
+            </NavLink>
+          </div>
         </div>
-      </div>
-    </div>
-    )
+      }
+      </div>)
   }
-}
+ }
+
 
 
 export default MovieModule
