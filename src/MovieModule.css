@@ -10,8 +10,15 @@ main {
   padding: 4vw;
 }
 
+
+.loading {
+  padding-top: 20vw;
+}
+
 .movie-info-container {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
   z-index: 1;
   top: 8px;
   width: 66vw;
