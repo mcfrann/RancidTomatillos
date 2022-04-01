@@ -77,7 +77,11 @@ class MovieModule extends Component {
 									'/10'}
 							</p>
 							<p className='overview'>{this.state.currentMovie.overview}</p>
-							<NavLink to={{ pathname: url }} target='_blank'>
+							<NavLink
+								to={{ pathname: url }}
+								target='_blank'
+								id='watchTrailer'
+								style={{ textDecoration: 'none' }}>
 								Watch Trailer
 							</NavLink>
 							<NavLink to='/'>
