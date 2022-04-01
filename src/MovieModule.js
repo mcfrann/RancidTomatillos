@@ -5,6 +5,7 @@ import fetchData from './api-calls'
 import './MovieModule.css'
 import backArrow from './yellow-arrow.png'
 import arrow from './less-than-arrow.png'
+import Trailer from './Trailer'
 
 class MovieModule extends Component {
 	constructor(props) {
@@ -73,7 +74,7 @@ class MovieModule extends Component {
 								style={{
 									textDecoration: 'none',
 								}}>
-								Watch Trailer
+								<Trailer id={this.state.currentMovie.id} />
 							</NavLink>
 							<NavLink to='/'>
 								<img src={arrow} alt='back-arrow' id='backArrow' />
