@@ -27,10 +27,9 @@ main {
 #watchTrailer {
 	/* color: #ffdd55; */
 	font-size: 2.5vw;
-	color: #df3e19;
+	color: #ffffff;
 	font-weight: bolder;
 	font-style: italic;
-
 	font-weight: bolder;
 	font-style: italic;
 	transition: 1000ms;
@@ -102,4 +101,8 @@ p {
 }
 .movie-details {
 	font-size: 20px;
+}
+
+.overview {
+	width: 34vw;
 }

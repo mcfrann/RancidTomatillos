@@ -20,6 +20,10 @@ const fetchData = {
     let url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
     return fetch(url).then(response => response.json())
   },
+  getTrailer(id) {
+    let url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`
+    return fetch(url).then(response => response.json())
+  }
 }
 
 export default fetchData

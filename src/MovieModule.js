@@ -11,6 +11,7 @@ class MovieModule extends Component {
 		super()
 		this.state = {
 			currentMovie: '',
+			trailer: '',
 		}
 	}
 
@@ -30,7 +31,17 @@ class MovieModule extends Component {
 		newDate.push(splitDate[0])
 		return newDate.join('/')
 	}
+	retrieveTrailer = () => {
+		fetchData.getTrailer(this.props.id).then((data) => {
+			const trailer = data.videos.find((video) => video['type'] === 'Trailer')
+			this.setState({ trailer: trailer })
+		})
+	}
 	render() {
+		{
+			this.retrieveTrailer()
+		}
+		const url = `https://www.youtube.com/watch?v=${this.state.trailer.key}`
 		return (
 			<div className='movie-info-container'>
 				{!this.state.currentMovie && <h2 className='loading'>Loading...</h2>}
@@ -67,12 +78,10 @@ class MovieModule extends Component {
 							</p>
 							<p className='overview'>{this.state.currentMovie.overview}</p>
 							<NavLink
-								to='/trailer'
-								alt='watch-trailer'
+								to={{ pathname: url }}
+								target='_blank'
 								id='watchTrailer'
-								style={{
-									textDecoration: 'none',
-								}}>
+								style={{ textDecoration: 'none' }}>
 								Watch Trailer
 							</NavLink>
 							<NavLink to='/'>
