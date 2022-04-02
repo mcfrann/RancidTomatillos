@@ -1,10 +1,11 @@
 import { render } from '@testing-library/react'
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Route } from 'react-router-dom'
 import fetchData from './api-calls'
 import './MovieModule.css'
 import backArrow from './yellow-arrow.png'
 import arrow from './less-than-arrow.png'
+import Trailer from './Trailer'
 
 class MovieModule extends Component {
 	constructor(props) {
@@ -38,10 +39,9 @@ class MovieModule extends Component {
 		})
 	}
 	render() {
-		{
-			this.retrieveTrailer()
-		}
-		const url = `https://www.youtube.com/watch?v=${this.state.trailer.key}`
+		this.retrieveTrailer()
+
+		const url = `https://www.youtube.com/embed/${this.state.trailer.key}`
 		return (
 			<div className='movie-info-container'>
 				{!this.state.currentMovie && <h2 className='loading'>Loading...</h2>}
@@ -77,8 +77,21 @@ class MovieModule extends Component {
 									'/10'}
 							</p>
 							<p className='overview'>{this.state.currentMovie.overview}</p>
-							<NavLink
+							{/* <NavLink
 								to={{ pathname: url }}
+								target='_blank'
+								id='watchTrailer'
+								style={{ textDecoration: 'none' }}>
+								Watch Trailer
+							</NavLink> */}
+							<Route
+								path='/trailer'
+								exact
+								render={() => <Trailer url={{ url }} />}
+							/>
+
+							<NavLink
+								to='/trailer'
 								target='_blank'
 								id='watchTrailer'
 								style={{ textDecoration: 'none' }}>
