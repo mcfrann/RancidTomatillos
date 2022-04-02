@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('Rancid Tomatillos App', () => {
 
   it('has a title/heading', () => {
