@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React, { Component } from 'react'
-import { NavLink, Route, Switch } from 'react-router-dom'
+import { NavLink, Route, Switch, Link } from 'react-router-dom'
 import fetchData from './api-calls'
 import './MovieModule.css'
 import backArrow from './yellow-arrow.png'
@@ -94,14 +94,20 @@ class MovieModule extends Component {
 									path='/trailer'
 									exact
 									render={() => (
-										<div className='trailer-container'>
-											<iframe
-												title='watch-trailer'
-												width='854'
-												height='480'
-												className='trailer'
-												src={this.state.url}></iframe>
-										</div>
+										<Link
+											to={`/${this.state.currentMovie.id}`}
+											key={this.state.currentMovie.id}
+											id={this.state.currentMovie.id}
+											className='trailer-container'>
+											<div className='trailer-container'>
+												<iframe
+													title='watch-trailer'
+													width='854'
+													height='480'
+													className='trailer'
+													src={this.state.url}></iframe>
+											</div>
+										</Link>
 									)}
 								/>
 								<NavLink
