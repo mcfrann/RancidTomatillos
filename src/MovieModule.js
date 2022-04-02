@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React, { Component } from 'react'
-import { NavLink, Route } from 'react-router-dom'
+import { NavLink, Route, Switch } from 'react-router-dom'
 import fetchData from './api-calls'
 import './MovieModule.css'
 import backArrow from './yellow-arrow.png'
@@ -16,6 +16,8 @@ class MovieModule extends Component {
 			currentMovie: '',
 			trailer: '',
 			error: null,
+			url: '',
+			path: '',
 		}
 	}
 
@@ -26,6 +28,15 @@ class MovieModule extends Component {
 				.then((movie) => this.setState({ currentMovie: movie.movie }))
 				.catch((error) => this.setState({ error: error }))
 		}
+		fetchData
+			.getTrailer(this.props.id)
+			.then((data) => {
+				const trailer = data.videos.find((video) => video['type'] === 'Trailer')
+				this.setState({ trailer: trailer })
+				this.setState({ url: `https://www.youtube.com/embed/${trailer.key}` })
+				this.setState({ path: `${trailer.movie_id}/trailer` })
+			})
+			.catch((error) => this.setState({ error: error }))
 	}
 
 	displayNumber(number) {
@@ -37,19 +48,11 @@ class MovieModule extends Component {
 		newDate.push(splitDate[0])
 		return newDate.join('/')
 	}
-	retrieveTrailer = () => {
-		fetchData
-			.getTrailer(this.props.id)
-			.then((data) => {
-				const trailer = data.videos.find((video) => video['type'] === 'Trailer')
-				this.setState({ trailer: trailer })
-			})
-			.catch((error) => this.setState({ error: error }))
-	}
-	render() {
-		this.retrieveTrailer()
 
-		const url = `https://www.youtube.com/embed/${this.state.trailer.key}`
+	//// remember to move this!
+
+	render() {
+		// const url = `https://www.youtube.com/embed/${this.state.trailer.key}`
 		return (
 			<div className='movie-info-container'>
 				{this.state.error && <ErrorMessage error={this.state.error} />}
@@ -86,26 +89,30 @@ class MovieModule extends Component {
 									'/10'}
 							</p>
 							<p className='overview'>{this.state.currentMovie.overview}</p>
-							{/* <NavLink
-								to={{ pathname: url }}
-								target='_blank'
-								id='watchTrailer'
-								style={{ textDecoration: 'none' }}>
-								Watch Trailer
-							</NavLink> */}
-							<Route
-								path='/trailer'
-								exact
-								render={() => <Trailer url={{ url }} />}
-							/>
+							<Switch>
+								<Route
+									path='/trailer'
+									exact
+									render={() => (
+										<div className='trailer-container'>
+											<iframe
+												title='watch-trailer'
+												width='854'
+												height='480'
+												className='trailer'
+												src={this.state.url}></iframe>
+										</div>
+									)}
+								/>
+								<NavLink
+									to='/trailer'
+									// target='_blank'
+									id='watchTrailer'
+									style={{ textDecoration: 'none' }}>
+									Watch Trailer
+								</NavLink>
+							</Switch>
 
-							<NavLink
-								to='/trailer'
-								target='_blank'
-								id='watchTrailer'
-								style={{ textDecoration: 'none' }}>
-								Watch Trailer
-							</NavLink>
 							<NavLink to='/'>
 								<img src={arrow} alt='back-arrow' id='backArrow' />
 							</NavLink>
