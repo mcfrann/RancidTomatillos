@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React, { Component } from 'react'
-import { NavLink, Route } from 'react-router-dom'
+import { NavLink, Route, Switch } from 'react-router-dom'
 import fetchData from './api-calls'
 import './MovieModule.css'
 import backArrow from './yellow-arrow.png'
@@ -84,10 +84,25 @@ class MovieModule extends Component {
 								style={{ textDecoration: 'none' }}>
 								Watch Trailer
 							</NavLink> */}
+							{/* <Route exact path="/" component={Landing} /> */}
+							{/* <Route path="/:id" render={ ({ match }) => {
+                const id = parseInt(match.params.id)
+                return <MovieModule
+                  showMovie={this.showMovie}
+                  returnHome={this.returnHome}
+                  id={id}
+                  />}}
+                  /> */}
+
 							<Route
 								path='/trailer'
-								exact
-								render={() => <Trailer url={{ url }} />}
+								id='watchTrailer'
+								key='watchTrailer'
+								render={() => {
+									return (
+										<Trailer url={{ url }} id={this.state.currentMovie.id} />
+									)
+								}}
 							/>
 
 							<NavLink
@@ -97,6 +112,7 @@ class MovieModule extends Component {
 								style={{ textDecoration: 'none' }}>
 								Watch Trailer
 							</NavLink>
+
 							<NavLink to='/'>
 								<img src={arrow} alt='back-arrow' id='backArrow' />
 							</NavLink>
