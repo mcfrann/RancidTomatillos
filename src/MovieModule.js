@@ -5,6 +5,7 @@ import fetchData from './api-calls'
 import './MovieModule.css'
 import backArrow from './yellow-arrow.png'
 import arrow from './less-than-arrow.png'
+import ErrorMessage from './ErrorMessage'
 
 class MovieModule extends Component {
 	constructor(props) {
@@ -12,14 +13,17 @@ class MovieModule extends Component {
 		this.state = {
 			currentMovie: '',
 			trailer: '',
+			error: null
 		}
 	}
 
 	componentDidMount() {
-		fetchData
+		if (!this.state.error) {
+			fetchData
 			.getOneMovie(this.props.id)
 			.then((movie) => this.setState({ currentMovie: movie.movie }))
-			.catch((error) => this.setState({ error: 'unable to find movie' }))
+			.catch((error) => this.setState({error: error}))
+		}
 	}
 
 	displayNumber(number) {
@@ -36,14 +40,17 @@ class MovieModule extends Component {
 			const trailer = data.videos.find((video) => video['type'] === 'Trailer')
 			this.setState({ trailer: trailer })
 		})
+		.catch((error) => this.setState({error: error}))
 	}
 	render() {
 		{
 			this.retrieveTrailer()
 		}
 		const url = `https://www.youtube.com/watch?v=${this.state.trailer.key}`
+
 		return (
 			<div className='movie-info-container'>
+				{this.state.error && <ErrorMessage error={this.state.error}/>}
 				{!this.state.currentMovie && <h2 className='loading'>Loading...</h2>}
 				{this.state.currentMovie && (
 					<div
