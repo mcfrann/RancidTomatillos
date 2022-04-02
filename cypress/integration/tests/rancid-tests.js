@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('Rancid Tomatillos App', () => {
 
   it('has a title/heading', () => {
@@ -60,6 +58,41 @@ describe('Rancid Tomatillos App', () => {
       .should('be.visible')
       .url('http://localhost:3000/718444')
   })
+
+  it('Should display "Error: this does not exist" if internal server error', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/718444',
+    {
+      statusCode: 500,
+      ok: false,
+    })
+    cy.visit('http://localhost:3000/718444')
+      .get('.server-error')
+      .should('be.visible')
+  });
+
+  it('Should display "Error: Oh no! This movie was not found." if user enters false id to url', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/0000/',
+    {
+      statusCode: 404,
+      ok: false,
+    })
+    cy.visit('http://localhost:3000/0000/')
+      .get('.server-error')
+      .should('be.visible')
+  });
+
+  it('Should display "Error: Uh oh! Please return home and try again." if other errors', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/718444',
+    {
+      statusCode: 402,
+      ok: false,
+    })
+    cy.visit('http://localhost:3000/718444')
+      .get('.server-error')
+      .should('be.visible')
+  });
+
+  //tests for trailer
 
   it('should be able to return home by clicking arrow', () => {
     cy.visit('http://localhost:3000/718444')

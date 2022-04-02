@@ -7,20 +7,25 @@ import backArrow from './yellow-arrow.png'
 import arrow from './less-than-arrow.png'
 import Trailer from './Trailer'
 
+import ErrorMessage from './ErrorMessage'
+
 class MovieModule extends Component {
 	constructor(props) {
 		super()
 		this.state = {
 			currentMovie: '',
 			trailer: '',
+			error: null,
 		}
 	}
 
 	componentDidMount() {
-		fetchData
-			.getOneMovie(this.props.id)
-			.then((movie) => this.setState({ currentMovie: movie.movie }))
-			.catch((error) => this.setState({ error: 'unable to find movie' }))
+		if (!this.state.error) {
+			fetchData
+				.getOneMovie(this.props.id)
+				.then((movie) => this.setState({ currentMovie: movie.movie }))
+				.catch((error) => this.setState({ error: error }))
+		}
 	}
 
 	displayNumber(number) {
@@ -33,10 +38,13 @@ class MovieModule extends Component {
 		return newDate.join('/')
 	}
 	retrieveTrailer = () => {
-		fetchData.getTrailer(this.props.id).then((data) => {
-			const trailer = data.videos.find((video) => video['type'] === 'Trailer')
-			this.setState({ trailer: trailer })
-		})
+		fetchData
+			.getTrailer(this.props.id)
+			.then((data) => {
+				const trailer = data.videos.find((video) => video['type'] === 'Trailer')
+				this.setState({ trailer: trailer })
+			})
+			.catch((error) => this.setState({ error: error }))
 	}
 	render() {
 		this.retrieveTrailer()
@@ -44,6 +52,7 @@ class MovieModule extends Component {
 		const url = `https://www.youtube.com/embed/${this.state.trailer.key}`
 		return (
 			<div className='movie-info-container'>
+				{this.state.error && <ErrorMessage error={this.state.error} />}
 				{!this.state.currentMovie && <h2 className='loading'>Loading...</h2>}
 				{this.state.currentMovie && (
 					<div
