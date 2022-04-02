@@ -1,11 +1,12 @@
 import { render } from '@testing-library/react'
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Route, Switch } from 'react-router-dom'
 import fetchData from './api-calls'
 import './MovieModule.css'
 import backArrow from './yellow-arrow.png'
 import arrow from './less-than-arrow.png'
 import ErrorMessage from './ErrorMessage'
+import Trailer from './Trailer'
 
 class MovieModule extends Component {
 	constructor(props) {
@@ -43,11 +44,9 @@ class MovieModule extends Component {
 		.catch((error) => this.setState({error: error}))
 	}
 	render() {
-		{
-			this.retrieveTrailer()
-		}
-		const url = `https://www.youtube.com/watch?v=${this.state.trailer.key}`
+		this.retrieveTrailer()
 
+		const url = `https://www.youtube.com/embed/${this.state.trailer.key}`
 		return (
 			<div className='movie-info-container'>
 				{this.state.error && <ErrorMessage error={this.state.error}/>}
@@ -84,13 +83,42 @@ class MovieModule extends Component {
 									'/10'}
 							</p>
 							<p className='overview'>{this.state.currentMovie.overview}</p>
-							<NavLink
+							{/* <NavLink
 								to={{ pathname: url }}
 								target='_blank'
 								id='watchTrailer'
 								style={{ textDecoration: 'none' }}>
 								Watch Trailer
+							</NavLink> */}
+							{/* <Route exact path="/" component={Landing} /> */}
+							{/* <Route path="/:id" render={ ({ match }) => {
+                const id = parseInt(match.params.id)
+                return <MovieModule
+                  showMovie={this.showMovie}
+                  returnHome={this.returnHome}
+                  id={id}
+                  />}}
+                  /> */}
+
+							<Route
+								path='/trailer'
+								id='watchTrailer'
+								key='watchTrailer'
+								render={() => {
+									return (
+										<Trailer url={{ url }} id={this.state.currentMovie.id} />
+									)
+								}}
+							/>
+
+							<NavLink
+								to='/trailer'
+								target='_blank'
+								id='watchTrailer'
+								style={{ textDecoration: 'none' }}>
+								Watch Trailer
 							</NavLink>
+
 							<NavLink to='/'>
 								<img src={arrow} alt='back-arrow' id='backArrow' />
 							</NavLink>
