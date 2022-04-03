@@ -12,6 +12,6 @@
 }
 
 .trailer {
-	border: 1em solid rgb(7, 19, 52, 100);
-	border-radius: 1em;
+	border: 0.5em solid black;
+	border-radius: 0.5em;
 }

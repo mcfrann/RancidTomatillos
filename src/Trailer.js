@@ -3,11 +3,12 @@ import './Trailer.css'
 
 const Trailer = ({ url }) => {
 	return (
-		<div className='trailer'>
-			<h2>TRAILER TIME</h2>
-			console.log(url)
-			<iframe title='watch-trailer' width='420' height='315' src={url}></iframe>
-		</div>
+		<iframe
+			className='trailer'
+			title='watch-trailer'
+			width='854'
+			height='480'
+			src={url}></iframe>
 	)
 }
 
