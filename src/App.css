@@ -2,32 +2,31 @@
 	text-align: center;
 }
 
-.App-logo {
-	height: 40vmin;
-	pointer-events: none;
-}
-
-button {
-	cursor: pointer;
-	height: 5vw;
-	background-color: rgb(7, 19, 52, 100);
-}
-
 header {
-	display: flex;
-	justify-content: center;
 	flex-direction: row;
 	align-items: center;
 }
 
-#popcornIcon {
+#popcornIcon-onload,
+#popcornIcon-onhover {
 	height: 10vw;
 	margin-bottom: -1.5vw;
-	-webkit-animation: rotate-scale-up 0.65s linear both;
-	animation: rotate-scale-up 0.65s linear both;
 }
 
-.title-bar {
+#popcornIcon-onload {
+	-webkit-animation: rotate-scale-up 0.65s linear both;
+	animation: rotate-scale-up 0.65s linear both;
+	transition: 1000ms;
+}
+
+#popcornIcon-onhover:hover {
+	-webkit-animation: shake-bottom 01s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+		both;
+	animation: shake-bottom 1s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+.title-bar,
+header {
 	display: flex;
 	justify-content: center;
 }
@@ -38,10 +37,6 @@ header {
 	-webkit-animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 	animation: text-focus-in 2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 	animation-delay: 2ms;
-}
-
-.App-link {
-	color: #61dafb;
 }
 
 /* ----- Animations ---- */
@@ -105,5 +100,72 @@ header {
 	100% {
 		-webkit-transform: scale(1) rotateZ(360deg);
 		transform: scale(1) rotateZ(360deg);
+	}
+}
+
+@-webkit-keyframes shake-bottom {
+	0%,
+	100% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-webkit-transform-origin: 50% 100%;
+		transform-origin: 50% 100%;
+	}
+	10% {
+		-webkit-transform: rotate(2deg);
+		transform: rotate(2deg);
+	}
+	20%,
+	40%,
+	60% {
+		-webkit-transform: rotate(-4deg);
+		transform: rotate(-4deg);
+	}
+	30%,
+	50%,
+	70% {
+		-webkit-transform: rotate(4deg);
+		transform: rotate(4deg);
+	}
+	80% {
+		-webkit-transform: rotate(-2deg);
+		transform: rotate(-2deg);
+	}
+	90% {
+		-webkit-transform: rotate(2deg);
+		transform: rotate(2deg);
+	}
+}
+@keyframes shake-bottom {
+	0%,
+	100% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-webkit-transform-origin: 50% 100%;
+		transform-origin: 50% 100%;
+	}
+	10% {
+		-webkit-transform: rotate(2deg);
+		transform: rotate(2deg);
+	}
+	20%,
+	40%,
+	60% {
+		-webkit-transform: rotate(-4deg);
+		transform: rotate(-4deg);
+	}
+	30%,
+	50%,
+	70% {
+		-webkit-transform: rotate(4deg);
+		transform: rotate(4deg);
+	}
+	80% {
+		-webkit-transform: rotate(-2deg);
+		transform: rotate(-2deg);
+	}
+	90% {
+		-webkit-transform: rotate(2deg);
+		transform: rotate(2deg);
 	}
 }

@@ -75,12 +75,15 @@ class MovieModule extends Component {
 								width: '44vw',
 								padding: '1vw',
 							}}>
-							<h2>{this.state.currentMovie.title}</h2>
+							{this.state.currentMovie.title.length < 10 ? (
+								<h2 className='movie-title'>{this.state.currentMovie.title}</h2>
+							) : (
+								<h2>{this.state.currentMovie.title}</h2>
+							)}
+
 							{this.state.currentMovie.tagline && (
 								<p className='tagline'>
-									<strong>
-										<em>{this.state.currentMovie.tagline}</em>
-									</strong>
+									<em>{this.state.currentMovie.tagline}</em>
 								</p>
 							)}
 							<div className='details-container'>

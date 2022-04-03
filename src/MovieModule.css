@@ -1,5 +1,4 @@
 * {
-	/* border: 2px solid red; */
 	margin: 0;
 }
 
@@ -104,7 +103,11 @@ p {
 	width: 100%;
 }
 .movie-details {
-	font-size: 1.8vw;
+	font-size: 1.3vw;
+}
+
+.movie-title {
+	font-size: 3em;
 }
 
 .details-container {
@@ -117,7 +120,7 @@ p {
 }
 
 .tagline {
-	letter-spacing: 0.08em;
-	font-size: 1em;
+	letter-spacing: 0.05em;
+	font-size: 1.2em;
 	padding-bottom: 2em;
 }
