@@ -19,13 +19,12 @@ main {
 	justify-content: center;
 	align-content: center;
 	z-index: 1;
-	top: 8px;
+	top: 3vw;
 	width: 66vw;
 	height: 42vw;
 }
 
 #watchTrailer {
-	/* color: #ffdd55; */
 	font-size: 2.5vw;
 	color: #ffffff;
 	font-weight: bolder;
@@ -83,26 +82,42 @@ main {
 	border-top-left-radius: 0vw;
 }
 
-/* .bottom-section {
-  height: 50%;
-} */
+#backArrow {
+	transition: 1500ms;
+}
+
+#backArrow:hover {
+	transform: translateX(-1em);
+	transition: 500ms;
+}
 
 h2 {
-	font-size: 40px;
+	font-size: 2em;
 }
 
 h3 {
-	font-size: 20px;
+	font-size: 2em;
 }
 
 p {
-	font-size: 15px;
+	font-size: 1em;
 	width: 100%;
 }
 .movie-details {
-	font-size: 20px;
+	font-size: 1.8vw;
 }
 
+.details-container {
+	display: flex;
+	align-content: center;
+	width: 100%;
+}
 .overview {
 	width: 34vw;
+}
+
+.tagline {
+	letter-spacing: 0.08em;
+	font-size: 1em;
+	padding-bottom: 2em;
 }

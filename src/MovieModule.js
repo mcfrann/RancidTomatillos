@@ -13,7 +13,7 @@ class MovieModule extends Component {
 			currentMovie: '',
 			trailer: '',
 			url: '',
-			error: null
+			error: null,
 		}
 	}
 
@@ -27,7 +27,12 @@ class MovieModule extends Component {
 		fetchData
 			.getTrailer(this.props.id)
 			.then((data) => {
-				const trailer = data.videos.find((video) => video['type'] === 'Trailer')
+				const trailer = data.videos.find((video) => {
+					if (video['type'] === 'Trailer') {
+						return video
+					}
+					return video[0]
+				})
 				this.setState({ trailer: trailer })
 				this.setState({ url: `https://www.youtube.com/embed/${trailer.key}` })
 			})
@@ -71,17 +76,26 @@ class MovieModule extends Component {
 								padding: '1vw',
 							}}>
 							<h2>{this.state.currentMovie.title}</h2>
-							<p className='movie-details'>
-								<strong>Released:</strong>{' '}
-								{this.parseDate(this.state.currentMovie.release_date)}
-							</p>
-							<p className='movie-details'>
-								<strong>{this.displayNumber(this.state.currentMovie.average_rating) +
-									'/10 rating'}</strong>
-							</p>
-							<p className='tagline'>
-								<strong>{this.state.currentMovie.tagline}</strong>
-							</p>
+							{this.state.currentMovie.tagline && (
+								<p className='tagline'>
+									<strong>
+										<em>{this.state.currentMovie.tagline}</em>
+									</strong>
+								</p>
+							)}
+							<div className='details-container'>
+								<p className='movie-details'>
+									<strong>Released:</strong>{' '}
+									{this.parseDate(this.state.currentMovie.release_date)}
+								</p>
+								<p className='movie-details'>
+									<strong>
+										{this.displayNumber(
+											this.state.currentMovie.average_rating
+										) + '/10 rating'}
+									</strong>
+								</p>
+							</div>
 							<p className='overview'>{this.state.currentMovie.overview}</p>
 							<Switch>
 								<Route
