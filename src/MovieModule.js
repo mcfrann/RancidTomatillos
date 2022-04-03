@@ -99,14 +99,7 @@ class MovieModule extends Component {
 											key={this.state.currentMovie.id}
 											id={this.state.currentMovie.id}
 											className='trailer-container'>
-											<div className='trailer-container'>
-												<iframe
-													title='watch-trailer'
-													width='854'
-													height='480'
-													className='trailer'
-													src={this.state.url}></iframe>
-											</div>
+											<Trailer url={this.state.url} className='trailer' />
 										</Link>
 									)}
 								/>
