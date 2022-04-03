@@ -43,7 +43,7 @@ const fetchData = {
           if(response.status >= 500) {
             throw new Error(`This does not exist.`)
           } else if (response.status === 404) {
-            throw new Error(`Oh no! This movie was not found.`)
+            throw new Error(`Oh no! This trailer was not found.`)
           } else {
             throw new Error(`Uh oh! Please return home and try again.`)
           }

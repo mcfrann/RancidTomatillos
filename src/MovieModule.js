@@ -1,9 +1,7 @@
-import { render } from '@testing-library/react'
 import React, { Component } from 'react'
 import { NavLink, Route, Switch, Link } from 'react-router-dom'
 import fetchData from './api-calls'
 import './MovieModule.css'
-import backArrow from './yellow-arrow.png'
 import arrow from './less-than-arrow.png'
 import ErrorMessage from './ErrorMessage'
 import Trailer from './Trailer'
@@ -14,9 +12,8 @@ class MovieModule extends Component {
 		this.state = {
 			currentMovie: '',
 			trailer: '',
-			error: null,
 			url: '',
-			path: '',
+			error: null
 		}
 	}
 
@@ -33,7 +30,6 @@ class MovieModule extends Component {
 				const trailer = data.videos.find((video) => video['type'] === 'Trailer')
 				this.setState({ trailer: trailer })
 				this.setState({ url: `https://www.youtube.com/embed/${trailer.key}` })
-				this.setState({ path: `${trailer.movie_id}/trailer` })
 			})
 			.catch((error) => this.setState({ error: error }))
 	}
@@ -41,6 +37,7 @@ class MovieModule extends Component {
 	displayNumber(number) {
 		return Math.round(number)
 	}
+
 	parseDate = (date) => {
 		const splitDate = date.split('-')
 		const newDate = splitDate.slice(1)
@@ -49,7 +46,6 @@ class MovieModule extends Component {
 	}
 
 	render() {
-
 		return (
 			<div className='movie-info-container'>
 				{this.state.error && <ErrorMessage error={this.state.error} />}
@@ -67,7 +63,6 @@ class MovieModule extends Component {
 							className='movie-poster'
 							src={this.state.currentMovie.poster_path}
 							alt={this.state.currentMovie.title}></img>
-
 						<div
 							className='text-container'
 							style={{
@@ -77,18 +72,20 @@ class MovieModule extends Component {
 							}}>
 							<h2>{this.state.currentMovie.title}</h2>
 							<p className='movie-details'>
-								<strong>Release Date:</strong>{' '}
+								<strong>Released:</strong>{' '}
 								{this.parseDate(this.state.currentMovie.release_date)}
 							</p>
 							<p className='movie-details'>
-								<strong>Average Rating:</strong>{' '}
-								{this.displayNumber(this.state.currentMovie.average_rating) +
-									'/10'}
+								<strong>{this.displayNumber(this.state.currentMovie.average_rating) +
+									'/10 rating'}</strong>
+							</p>
+							<p className='tagline'>
+								<strong>{this.state.currentMovie.tagline}</strong>
 							</p>
 							<p className='overview'>{this.state.currentMovie.overview}</p>
 							<Switch>
 								<Route
-									path='/trailer'
+									path={`/${this.state.currentMovie.id}/trailer`}
 									exact
 									render={() => (
 										<Link
@@ -101,14 +98,12 @@ class MovieModule extends Component {
 									)}
 								/>
 								<NavLink
-									to='/trailer'
-									// target='_blank'
+									to={`/${this.state.currentMovie.id}/trailer`}
 									id='watchTrailer'
 									style={{ textDecoration: 'none' }}>
 									Watch Trailer
 								</NavLink>
 							</Switch>
-
 							<NavLink to='/'>
 								<img src={arrow} alt='back-arrow' id='backArrow' />
 							</NavLink>

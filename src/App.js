@@ -40,8 +40,6 @@ class App extends Component {
               <Route path="/:id" render={ ({ match }) => {
                 const id = parseInt(match.params.id)
                 return <MovieModule
-                  showMovie={this.showMovie}
-                  returnHome={this.returnHome}
                   id={id}
                   />}}
                   />
