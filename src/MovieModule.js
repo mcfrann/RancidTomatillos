@@ -5,9 +5,8 @@ import fetchData from './api-calls'
 import './MovieModule.css'
 import backArrow from './yellow-arrow.png'
 import arrow from './less-than-arrow.png'
-import Trailer from './Trailer'
-
 import ErrorMessage from './ErrorMessage'
+import Trailer from './Trailer'
 
 class MovieModule extends Component {
 	constructor(props) {
@@ -49,10 +48,8 @@ class MovieModule extends Component {
 		return newDate.join('/')
 	}
 
-	//// remember to move this!
-
 	render() {
-		// const url = `https://www.youtube.com/embed/${this.state.trailer.key}`
+
 		return (
 			<div className='movie-info-container'>
 				{this.state.error && <ErrorMessage error={this.state.error} />}
