@@ -68,7 +68,7 @@ describe('Rancid Tomatillos App', () => {
     cy.visit('http://localhost:3000/718444')
       .get('.server-error')
       .should('be.visible')
-  });
+  })
 
   it('Should display "Error: Oh no! This movie was not found." if user enters false id to url', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/0000/',
@@ -79,7 +79,7 @@ describe('Rancid Tomatillos App', () => {
     cy.visit('http://localhost:3000/0000/')
       .get('.server-error')
       .should('be.visible')
-  });
+  })
 
   it('Should display "Error: Uh oh! Please return home and try again." if other errors', () => {
     cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/718444',
@@ -90,7 +90,7 @@ describe('Rancid Tomatillos App', () => {
     cy.visit('http://localhost:3000/718444')
       .get('.server-error')
       .should('be.visible')
-  });
+  })
 
   it('should display movie trailer in popout and click outside trailer to return to movie module', () => {
     cy.visit('http://localhost:3000/718444')
