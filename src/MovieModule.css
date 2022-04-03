@@ -66,13 +66,9 @@ main {
 }
 
 .text-container {
-	height: 100%;
 	display: flex;
 	flex-direction: column;
-	width: 30vh;
-	height: 15vw;
 	justify-content: space-evenly;
-	position: relative;
 	align-items: center;
 	font-family: sans-serif;
 	background-color: #2d375bb5;
@@ -90,10 +86,7 @@ main {
 	transition: 500ms;
 }
 
-h2 {
-	font-size: 2em;
-}
-
+h2,
 h3 {
 	font-size: 2em;
 }
@@ -102,6 +95,7 @@ p {
 	font-size: 1em;
 	width: 100%;
 }
+
 .movie-details {
 	font-size: 1.3vw;
 }
@@ -120,6 +114,7 @@ p {
 }
 
 .tagline {
+	color: rgb(239, 209, 57);
 	letter-spacing: 0.05em;
 	font-size: 1.2em;
 	padding-bottom: 2em;

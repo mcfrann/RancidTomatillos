@@ -49,11 +49,21 @@ class MovieModule extends Component {
 		newDate.push(splitDate[0])
 		return newDate.join('/')
 	}
+	goBack = (event) => {
+		event.preventDefault()
+		this.setState({ error: '' })
+	}
 
 	render() {
 		return (
 			<div className='movie-info-container'>
-				{this.state.error && <ErrorMessage error={this.state.error} />}
+				{this.state.error && (
+					<div
+						className='error-container modal'
+						onClick={(event) => this.goBack(event)}>
+						{<ErrorMessage error={this.state.error} />}
+					</div>
+				)}
 				{!this.state.currentMovie && <h2 className='loading'>Loading...</h2>}
 				{this.state.currentMovie && (
 					<div
