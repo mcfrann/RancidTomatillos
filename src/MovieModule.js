@@ -79,12 +79,7 @@ class MovieModule extends Component {
 							src={this.state.currentMovie.poster_path}
 							alt={this.state.currentMovie.title}></img>
 						<div
-							className='text-container'
-							style={{
-								height: '40vw',
-								width: '44vw',
-								padding: '1vw',
-							}}>
+							className='text-container'>
 							{this.state.currentMovie.title.length < 10 ? (
 								<h2 className='movie-title'>{this.state.currentMovie.title}</h2>
 							) : (
