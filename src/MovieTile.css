@@ -9,3 +9,9 @@
 	border-radius: 5%;
 	transition: 500ms;
 }
+
+@media screen and (max-width: 500px) {
+	.movie-img {
+		max-width: 90vw;
+	}
+}
