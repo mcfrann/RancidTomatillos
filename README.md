@@ -1,7 +1,11 @@
 # Rancid Tomatillos
 
 ##### Created by
+
+
 Francesca McConnell | [Github](https://github.com/mcfrann)
+
+
 Katie Toler | [Github](https://github.com/KATIETOLER)
 
 ### Deploy Links
@@ -38,16 +42,27 @@ This project is definitely not Rotten Tomatoes. Nor is it Netflix. Nor is it IMD
 
 ## Site Examples
 Page on Load:
+
 ![Page on Load](https://media0.giphy.com/media/U2zJLmKAdcrmFbPNKW/giphy.gif)
+
 See an individual movie's details:
+
 ![Click on a Movie to see Details](https://media3.giphy.com/media/hyr3iaa8rsAWLpFDqy/giphy.gif)
+
 Watch a movie trailer:
+
 ![Watch a Trailer](https://media2.giphy.com/media/5Yd8m6OytadF2aatVJ/giphy.gif)
+
 The trailer view can be clicked out of at any time:
+
 ![Trailer view](https://media2.giphy.com/media/MsfPZvrYdz4wYSrRDB/giphy.gif)
+
 Errors are shown to the user and can be closed:
+
 ![Errors Pop Up and can be Clicked](https://media4.giphy.com/media/O5YA3EnYJGQuYERTyP/giphy.gif)
+
 Loading pop-corn spin:
+
 ![Loading pop-corn spin](https://media4.giphy.com/media/isMJZsP5BNI651zBZg/giphy.gif)
 
 ### Examples of URL Paths Changing With Router
