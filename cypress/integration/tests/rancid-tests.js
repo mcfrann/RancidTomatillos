@@ -98,12 +98,12 @@ describe('Rancid Tomatillos App', () => {
       .click()
       .get('.trailer-container')
       .should('be.visible')
-      .url('http://localhost:3000/trailer')
+      .url('http://localhost:3000/718444/trailer')
       .get('.trailer')
       .click()
       .get('.movie-mod')
       .should('be.visible')
-      .url('http://localhost:3000/718444')
+      .url('http://localhost:3000/718444/')
   })
 
   it('should be able to return home by clicking arrow', () => {
