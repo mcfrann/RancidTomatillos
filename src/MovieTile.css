@@ -1,15 +1,11 @@
-/* .movie-tile {
-  height: 400px;
-  max-width: 30px;
-} */
 .movie-img {
-  max-width: 20vw;
-  border-radius: 5%;
-  transition: 1000ms;
+	max-width: 20vw;
+	border-radius: 5%;
+	transition: 1000ms;
 }
 
 .movie-img:hover {
-  transform: scale(1.1);
-  border-radius: 5%;
-  transition: 500ms;
+	transform: scale(1.1);
+	border-radius: 5%;
+	transition: 500ms;
 }

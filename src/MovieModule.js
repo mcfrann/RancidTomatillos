@@ -13,7 +13,7 @@ class MovieModule extends Component {
 			currentMovie: '',
 			trailer: '',
 			url: '',
-			error: null
+			error: null,
 		}
 	}
 
@@ -27,7 +27,12 @@ class MovieModule extends Component {
 		fetchData
 			.getTrailer(this.props.id)
 			.then((data) => {
-				const trailer = data.videos.find((video) => video['type'] === 'Trailer')
+				const trailer = data.videos.find((video) => {
+					if (video['type'] === 'Trailer') {
+						return video
+					}
+					return video[0]
+				})
 				this.setState({ trailer: trailer })
 				this.setState({ url: `https://www.youtube.com/embed/${trailer.key}` })
 			})
@@ -44,11 +49,21 @@ class MovieModule extends Component {
 		newDate.push(splitDate[0])
 		return newDate.join('/')
 	}
+	goBack = (event) => {
+		event.preventDefault()
+		this.setState({ error: '' })
+	}
 
 	render() {
 		return (
 			<div className='movie-info-container'>
-				{this.state.error && <ErrorMessage error={this.state.error} />}
+				{this.state.error && (
+					<div
+						className='error-container modal'
+						onClick={(event) => this.goBack(event)}>
+						{<ErrorMessage error={this.state.error} />}
+					</div>
+				)}
 				{!this.state.currentMovie && <h2 className='loading'>Loading...</h2>}
 				{this.state.currentMovie && (
 					<div
@@ -70,18 +85,30 @@ class MovieModule extends Component {
 								width: '44vw',
 								padding: '1vw',
 							}}>
-							<h2>{this.state.currentMovie.title}</h2>
-							<p className='movie-details'>
-								<strong>Released:</strong>{' '}
-								{this.parseDate(this.state.currentMovie.release_date)}
-							</p>
-							<p className='movie-details'>
-								<strong>{this.displayNumber(this.state.currentMovie.average_rating) +
-									'/10 rating'}</strong>
-							</p>
-							<p className='tagline'>
-								<strong>{this.state.currentMovie.tagline}</strong>
-							</p>
+							{this.state.currentMovie.title.length < 10 ? (
+								<h2 className='movie-title'>{this.state.currentMovie.title}</h2>
+							) : (
+								<h2>{this.state.currentMovie.title}</h2>
+							)}
+
+							{this.state.currentMovie.tagline && (
+								<p className='tagline'>
+									<em>{this.state.currentMovie.tagline}</em>
+								</p>
+							)}
+							<div className='details-container'>
+								<p className='movie-details'>
+									<strong>Released:</strong>{' '}
+									{this.parseDate(this.state.currentMovie.release_date)}
+								</p>
+								<p className='movie-details'>
+									<strong>
+										{this.displayNumber(
+											this.state.currentMovie.average_rating
+										) + '/10 rating'}
+									</strong>
+								</p>
+							</div>
 							<p className='overview'>{this.state.currentMovie.overview}</p>
 							<Switch>
 								<Route

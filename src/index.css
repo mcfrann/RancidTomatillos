@@ -1,15 +1,4 @@
-@import url(https://fonts.google.com/specimen/Dela+Gothic+One
-https://fonts.google.com/specimen/Secular+One);
-@import url(https://fonts.google.com/specimen/Secular+One
-https://fonts.google.com/specimen/Alfa+Slab+One);
-@import url(https://fonts.google.com/specimen/Fredoka+Ones);
-@import url(https://fonts.google.com/specimen/Righteous);
-
-/* html {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+@import url(https://fonts.google.com/specimen/Dela+Gothic+One);
 
 body {
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -25,10 +14,6 @@ header {
 	width: 100%;
 }
 
-/* main {
-  width: 120%;
-} */
-
 h1,
 h2 {
 	font-size: 4vw;
@@ -37,20 +22,4 @@ h2 {
 
 h2 {
 	font-size: 1vw;
-}
-
-button {
-	background-color: #071234;
-	color: whitesmoke;
-	border: solid #071234;
-	font-size: 1.3em;
-	padding: 1vw;
-	width: 15em;
-	border-radius: 3em;
-}
-
-button:hover {
-	background-color: whitesmoke;
-	border: solid whitesmoke;
-	color: #071234;
 }
