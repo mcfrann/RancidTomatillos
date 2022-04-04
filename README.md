@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Rancid Tomatillos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+##### Created by
+Francesca McConnell | [Github](https://github.com/mcfrann)
+Katie Toler | [Github](https://github.com/KATIETOLER)
 
-## Available Scripts
+### Deploy Links
+#### [Deploy Link](https://the-rancid-tomatillos.herokuapp.com/) | [Github Repository](https://github.com/mcfrann/RancidTomatillos)
 
-In the project directory, you can run:
+## Table of Contents
+- [Overview](#overview)
+- [Technologies](#technologies)
+- [Site Examples](#screenshots)
+- [URL Examples](#Examples)
+- [Deploy Links](#links)
+- [Install and Setup](#Install)
+- [Project Goals](#Goals)
+- [Contributors](#contributors)
 
-### `npm start`
+## Overview
+---
+This app is built using JavaScript with a React framework. The app was also created with HTML, CSS; it utilizes Test Driven Development with Cypress.
+This project is definitely not Rotten Tomatoes. Nor is it Netflix. Nor is it IMDB. It’s R A N C I D T O M A T I L L O S, okay? Very different!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies
+- Javascript
+- React
+- Router
+- Cypress
+- HTML
+- CSS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Goals
+- Gain competency with React fundamentals
+- Learn how to test React components & asynchronous JS
+- Practice refactoring
+- Create a multi-page UX using Router
 
-### `npm test`
+## Site Examples
+Page on Load:
+![Page on Load](https://media0.giphy.com/media/U2zJLmKAdcrmFbPNKW/giphy.gif)
+See an individual movie's details:
+![Click on a Movie to see Details](https://media3.giphy.com/media/hyr3iaa8rsAWLpFDqy/giphy.gif)
+Watch a movie trailer:
+![Watch a Trailer](https://media2.giphy.com/media/5Yd8m6OytadF2aatVJ/giphy.gif)
+The trailer view can be clicked out of at any time:
+![Trailer view](https://media2.giphy.com/media/MsfPZvrYdz4wYSrRDB/giphy.gif)
+Errors are shown to the user and can be closed:
+![Errors Pop Up and can be Clicked](https://media4.giphy.com/media/O5YA3EnYJGQuYERTyP/giphy.gif)
+Loading pop-corn spin:
+![Loading pop-corn spin](https://media4.giphy.com/media/isMJZsP5BNI651zBZg/giphy.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Examples of URL Paths Changing With Router
+![Show Link](https://user-images.githubusercontent.com/68283157/161598335-ba3e0b91-8da1-45ad-b566-6e4559892789.png)
+![Show Link2](https://user-images.githubusercontent.com/68283157/161598380-ac5869c0-3d72-488c-8c08-ae34f0885cb7.png)
 
-### `npm run build`
+## Install and Setup
+To run this app locally:
+1. fork this repository
+2. run `git clone git clone git@github.com:GraceGardner/rancidtomatillos.git` in your command line
+3. Run `cd rancidtomatillos` to navigate into the repository
+4. Run `npm install`
+5. Run `npm start`
+6. Visit `http://localhost:3000/` in your browser to view the Rancid Tomatillos app!
+7. Open a second terminal tab and run `npm run cypress` (while localhost:3000 is still running) to access the cypress testing for this app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributors
+Project Manager | [Scott Ertmer](https://github.com/sertmer)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Attributions
+- Checkout the Turing spec sheet [here](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html)
+- [Popcorn icon created by Pomicon and hosted by Flaticon](https://www.flaticon.com/free-icons/popcorn)

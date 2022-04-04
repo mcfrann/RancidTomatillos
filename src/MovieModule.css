@@ -75,6 +75,9 @@ main {
 	border-radius: 2vw;
 	border-bottom-left-radius: 0vw;
 	border-top-left-radius: 0vw;
+	height: 40vw;
+	width: 44vw;
+	padding: 1vw;
 }
 
 #backArrow {
@@ -118,4 +121,31 @@ p {
 	letter-spacing: 0.05em;
 	font-size: 1.2em;
 	padding-bottom: 2em;
+}
+
+
+@media screen and (max-width: 500px) {
+	.text-container {
+		font-size: .75em;
+		width: 100%;
+		height: 98.2%;
+		border-radius: 2vw;
+	}
+	.movie-details {
+		font-size: .95em;
+	}
+	.movie-mod {
+		width: 100vw;
+		height: 102vw;
+	}
+	#watchTrailer {
+		font-size: 2em;
+	}
+	.overview {
+		width: 85vw;
+	}
+	.movie-poster,
+	#backArrow {
+		display: none;
+	}
 }
