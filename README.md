@@ -61,9 +61,14 @@ Errors are shown to the user and can be closed:
 
 ![Errors Pop Up and can be Clicked](https://media4.giphy.com/media/O5YA3EnYJGQuYERTyP/giphy.gif)
 
-Loading pop-corn spin:
+500 Level Errors
 
-![Loading pop-corn spin](https://media4.giphy.com/media/isMJZsP5BNI651zBZg/giphy.gif)
+![500 Level Errors](https://media0.giphy.com/media/N8GKg4WV39ooC5d2zJ/giphy.gif)
+
+
+Mobile Responsive Design
+
+![Moble Responsive](https://media0.giphy.com/media/hALak3PdxDBgMp42Wm/giphy.gif)
 
 ### Examples of URL Paths Changing With Router
 ![Show Link](https://user-images.githubusercontent.com/68283157/161598335-ba3e0b91-8da1-45ad-b566-6e4559892789.png)
