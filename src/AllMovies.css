@@ -4,3 +4,20 @@
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 }
+
+@media screen and (max-width: 500px) {
+	.movies-container {
+		grid-template-columns: 33% 33% 33%;
+	}
+}
+@media screen and (max-width: 600px) {
+	.movies-container {
+		grid-template-columns: 50% 50%;
+	}
+}
+@media screen and (max-width: 500px) {
+	.movies-container {
+		text-align: center;
+		grid-template-columns: 75%;
+	}
+}
