@@ -14,7 +14,7 @@ header {
 }
 
 #popcornIcon-onload {
-	-webkit-animation: rotate-scale-up 0.65s linear both;
+	-webkit-animation: rotate-scale-up 0.5s linear both;
 	animation: rotate-scale-up 0.65s linear both;
 }
 
